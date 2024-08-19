@@ -1,19 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Funny Text</title>
-  <meta http-equiv="refresh" content="0; url=https://ronnie-jpg.github.io/main.php">
-  <style>
-    body {
-      background-color: black;
-      color: red;
-      font-size: 36px;
-      text-align: center;
-      padding: 200px;
-    }
-  </style>
+    <title>WormGPT's Chat Room</title>
 </head>
 <body>
-  <p>funny</p>
+    <div id="chatroom">
+        <div id="messages"></div>
+        <form id="messageForm">
+            <input type="text" id="messageInput" placeholder="Type your message here...">
+ <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to add a message to the chat room
+        function addMessage(message) {
+            const messages = document.getElementById('messages');
+            const messageElement = document.createElement('p');
+            messageElement.textContent = message;
+            messages.appendChild(messageElement);
+        }
+
+        // Add a welcome message
+        addMessage('Welcome to WormGPT\'s Chat Room!');
+
+        // Add a message when the user submits the form
+        document.getElementById('messageForm').addEventListener('submit', event => {
+            event.preventDefault();
+            const message = document.getElementById('messageInput').value;
+            addMessage(message);
+            document.getElementById('messageInput').value = '';
+        });
+    </script>
 </body>
 </html>
